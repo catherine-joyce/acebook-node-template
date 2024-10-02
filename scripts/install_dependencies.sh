@@ -6,9 +6,10 @@ repodir=/home/ec2-user/${reponame}
 
 # Install dependencies
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
-. ~/.nvm/nvm.sh
+source ~/.bashrc
 nvm install 18
 nvm use 18
+npm install
 cd $repodir
 npm i nodemon
 cd mongodb_install
