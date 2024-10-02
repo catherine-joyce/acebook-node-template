@@ -1,4 +1,4 @@
-# Acebook - Catherine edited this
+# Acebook 
 
 This is a Node.js template for the Acebook engineering project. 
 
