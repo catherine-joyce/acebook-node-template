@@ -51,7 +51,7 @@ jobs:
 
       - name: Copy files to S3 with the AWS CLI
         run: |
-          aws s3 sync ./artifacts/${{ github.repository }}/ s3://catherine-bucket
+          aws s3 sync ./artifacts/${{ github.repository }}/ s3://catherine-bucket --delete
       
       - name: S3 to EC2 
         run: | 
