@@ -1,14 +1,14 @@
-name: CI Pipeline
+name: CI - Integration tests]
 
 on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+  workflow_run:
+    workflows: [CI - Unit tests]
+    types: [completed]
 
 jobs:
-  ci: # Run linter and run tests (Jest and Cypress)
+  ci-integration-tests:
     runs-on: ubuntu-latest
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
 
     strategy:
       matrix:
@@ -31,9 +31,6 @@ jobs:
         mongodb-version: ${{ matrix.mongodb-version }}
     - run: npm install   
     - run: npm ci 
-    # - run: npm run build --if-present  # We didn't have a build section - leave out?
-    - run: npm run lint
-    - run: npm run test:unit
     
     - name: Cypress run
       uses: cypress-io/github-action@v6
