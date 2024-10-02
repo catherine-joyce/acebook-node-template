@@ -88,3 +88,10 @@ jobs:
       - name: Copy files to S3 with the AWS CLI
         run: |
           aws s3 sync ./artifacts s3://catherine-bucket
+      
+      - name: S3 to EC2 
+        run: |
+          aws deploy create-deployment \
+            --application-name catherinej-app \ 
+            --deployment-group-name production \ 
+            --s3-location bucket=catherine-bucket,key=catherinejoyce/acebook-node-template/3e38be08b6ec3c897f474991002ca2fbf6f69dcc.zip,bundleType=zip
