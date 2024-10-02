@@ -87,7 +87,7 @@ jobs:
 
       - name: Copy files to S3 with the AWS CLI
         run: |
-          aws s3 sync ./artifacts/app.zip s3://catherine-bucket
+          aws s3 sync ./artifacts/${{ github.repository }}/app.zip s3://catherine-bucket
       
       - name: S3 to EC2 
         run: |
