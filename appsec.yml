@@ -5,15 +5,20 @@ files:
     destination: /home/ec2-user/catherinej-app
 file_exists_behavior: OVERWRITE
 hooks:
-  ApplicationStop:
-    - location: codedeploy-scripts/application-stop.sh
+  BeforeInstall:
+    - location: scripts/install_dependencies.sh
       timeout: 300
-      runas: ec2-user
+      runas: root
   AfterInstall:
-    - location: codedeploy-scripts/after-install.sh
+    - location: scripts/change_permissions.sh
       timeout: 300
-      runas: ec2-user
+      runas: root
   ApplicationStart:
-    - location: codedeploy-scripts/application-start.sh
+    - location: scripts/start_server.sh
+    - location: scripts/create_test_db.sh
       timeout: 300
-      runas: ec2-user
+      runas: root
+  ApplicationStop:
+    - location: scripts/stop_server.sh
+      timeout: 300
+      runas: root
