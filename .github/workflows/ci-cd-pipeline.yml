@@ -91,4 +91,4 @@ jobs:
       
       - name: S3 to EC2 
         run: |
-          aws deploy create-deployment --application-name catherinej-app --deployment-group-name production --s3-location bucket=catherine-bucket,key=app.zip,bundleType=zip
+          aws deploy create-deployment --application-name catherinej-app --deployment-group-name production --s3-location bucket=catherine-bucket,key=catherinejoyce/acebook-node-template/app.zip,bundleType=zip
