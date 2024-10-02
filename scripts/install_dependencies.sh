@@ -9,8 +9,9 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 export NVM_DIR="$HOME/.nvm" 
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" 
 source ~/.bashrc
-nvm install 18
-nvm use 18
+yum install npm
+nvm install node
+nvm use node
 npm install
 cd $repodir
 npm i nodemon
