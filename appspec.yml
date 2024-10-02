@@ -4,3 +4,12 @@ files:
   - source: /
     destination: /home/ec2-user/catherinej-app
 file_exists_behavior: OVERWRITE
+hooks:
+  AfterInstall:
+    - location: scripts/install_dependencies.sh
+      timeout: 300
+      runas: root
+  ApplicationStart:
+    - location: scripts/start_app.sh
+      timeout: 300
+      runas: root
