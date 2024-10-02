@@ -4,11 +4,16 @@
 reponame=catherinej-app
 repodir=/home/ec2-user/${reponame}
 
-# Install dependencies
+sudo chmod -R 777 /home/ec2-user/catherinej-app
+
+# Navigate into our working directory
+cd /home/ec2-user/catherinej-app
+
+# add npm and node to path
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
-export NVM_DIR="/home/ec2-user/.nvm" 
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" 
-[d-7ZUB2MWI6][stdout][ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  
+export NVM_DIR="$HOME/.nvm"	
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 source ~/.bashrc
 yum install npm
 nvm install node
