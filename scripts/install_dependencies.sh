@@ -9,6 +9,9 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 source ~/.bashrc
 nvm install 18
 nvm use 18
+cd $repodir
 npm i nodemon
-mv mongodb-org-8.0.repo $repodir/mongodb_install/ /etc/yum.repos.d/
+cd mongodb_install
+mv mongodb-org-8.0.repo /etc/yum.repos.d/
+cd ..
 yum install -y mongodb-org
