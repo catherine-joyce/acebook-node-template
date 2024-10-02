@@ -1,4 +1,4 @@
-name: CI - Integration tests]
+name: CI - Integration tests
 
 on:
   workflow_run:
