@@ -25,3 +25,7 @@ cd mongodb_install
 mv mongodb-org-8.0.repo /etc/yum.repos.d/
 cd ..
 yum install -y mongodb-org
+cd $repodir
+npm i nodemon
+systemctl start mongod
+(npm run start&)
