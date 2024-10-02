@@ -14,7 +14,7 @@ It uses:
 
 ## Card wall
 
-REPLACE THIS TEXT WITH A LINK 
+REPLACE THIS TEXT WITH A LINK FOR THE CARDS
 
 ## Quickstart
 
