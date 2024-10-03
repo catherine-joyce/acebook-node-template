@@ -9,7 +9,3 @@ hooks:
     - location: scripts/install_dependencies.sh
       timeout: 300
       runas: ec2-user
-  ApplicationStart:
-    - location: scripts/start_app.sh
-      timeout: 300
-      runas: ec2-user
