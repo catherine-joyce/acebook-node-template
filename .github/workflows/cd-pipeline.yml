@@ -4,6 +4,9 @@ on:
   workflow_run:
     workflows: [CI - Integration tests]
     types: [completed]
+    
+permissions:
+  id-token: write # This is required for requesting the JWT
 
 jobs:
   cd:
@@ -45,14 +48,13 @@ jobs:
       - name: Set AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }} # Need to be set up in GitHub > Settings > Secrets and variables > Actions > new repo secret > add new secret with name referenced here
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          role-to-assume: arn:aws:iam::211125485281:role/github-test
           aws-region: eu-west-2
 
       - name: Copy files to S3 with the AWS CLI
         run: |
           aws s3 sync ./artifacts/${{ github.repository }}/ s3://catherine-bucket --delete
       
-      - name: S3 to EC2 
-        run: | 
-          aws deploy create-deployment --application-name catherinej-app --deployment-group-name production --s3-location bucket=catherine-bucket,key=app.zip,bundleType=zip
+ #     - name: S3 to EC2 
+#     run: | 
+   #       aws deploy create-deployment --application-name catherinej-app --deployment-group-name production --s3-location bucket=catherine-bucket,key=app.zip,bundleType=zip
